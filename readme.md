@@ -10,7 +10,6 @@ Test Execution Instructions:
 1. Within the Project structure, navigate to "tests" package and open CartPageTest Class
 2. Locate the green "Run Test" button and click on it
 3. Select "Run CartPageTest" option
-4.
 
 User Story:
 As a User I want to be able to search for a product and add it to my cart, so that I can purchase it later.
