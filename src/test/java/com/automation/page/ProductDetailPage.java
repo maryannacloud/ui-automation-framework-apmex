@@ -17,8 +17,6 @@ public class ProductDetailPage extends BasePage {
     @FindBy(xpath = "//a[text()='Begin Checkout']")
     WebElement beginCheckoutBtn;
 
-    @FindBy(id = "attentive_creative")
-    WebElement iframe;
 
     public void verifyPage() {
         Assert.assertTrue(productTitle.isDisplayed());
@@ -26,14 +24,6 @@ public class ProductDetailPage extends BasePage {
     }
 
     public void clickAddToCartBtn() {
-
-        Actions action = new Actions(driver);
-        waitForElementToBeVisible(iframe);
-        action.scrollToElement(iframe).build().perform();
-        driver.switchTo().frame(iframe);
-        action.keyDown(Keys.ESCAPE).keyUp(Keys.ESCAPE).build().perform();
-        driver.switchTo().parentFrame();
-
         waitForElementToBeClickable(addToCartBtn);
         addToCartBtn.click();
     }

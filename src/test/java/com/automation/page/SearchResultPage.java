@@ -22,6 +22,12 @@ public class SearchResultPage extends BasePage {
     @FindBy(xpath = "//a[@class='cc-btn cc-dismiss']")
     WebElement cookieCloseBtn;
 
+    @FindBy(id = "attentive_creative")
+    WebElement iFrame;
+
+    @FindBy(id="dismissbutton2header1")
+    WebElement iFrameDismissBtn;
+
     public void verifySearchResults() {
         Assert.assertTrue(searchResultList.size() > 0);
         Assert.assertTrue(searchTerm.isDisplayed());
@@ -41,6 +47,16 @@ public class SearchResultPage extends BasePage {
     }
 
     public void clickOnItem(String itemName) {
+
+        waitForElementToBeVisible(iFrame);
+
+        if(isPresent(iFrame)){
+            driver.switchTo().frame(iFrame);
+            iFrameDismissBtn.click();
+            driver.switchTo().defaultContent();
+        }
+
+
         if (isPresent(cookieCloseBtn)) {
             cookieCloseBtn.click();
         }

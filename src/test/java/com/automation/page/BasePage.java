@@ -15,8 +15,8 @@ The BasePage is not an actual page of the Web Application. BasePage is the Paren
 which contains fields (variables) and functions (methods) that might be needed for it's Child (Sub) Classes.
 In our case here, the Child Classes are the actual Pages of the AUT, through which the User navigates,
 while performing the Steps of the Test Case.
-
  */
+
 public class BasePage {
 
     WebDriver driver;

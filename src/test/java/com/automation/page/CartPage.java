@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class CartPage extends com.automation.page.BasePage {
+public class CartPage extends BasePage {
 
     @FindBy(css = ".co-page-header h1")
     WebElement pageTitle;
