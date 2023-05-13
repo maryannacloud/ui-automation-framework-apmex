@@ -11,6 +11,7 @@ import java.util.List;
 
 public class SearchResultPage extends BasePage {
 
+    // in case if the user wanted to change what they wanted to search for in the config file, that is why we're using the '%s'
     final String XPATH_ITEM_NAME = "//div[@class='mod-product-title']/h4[text()='%s']";
 
     @FindBy(css = ".mod-product-title h4")
@@ -32,6 +33,8 @@ public class SearchResultPage extends BasePage {
         Assert.assertTrue(searchResultList.size() > 0);
         Assert.assertTrue(searchTerm.isDisplayed());
         String expTermName = PropertyReader.getProperty("search.term");
+        // since the text on the search term label includes quotes and the text in config file doesnt
+        // but that is what we are comparing this to - we have to remove the quotes
         String actTermName = searchTerm.getText().replace("\"", "");
         Assert.assertEquals(actTermName, expTermName);
     }
